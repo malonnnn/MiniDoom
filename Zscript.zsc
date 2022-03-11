@@ -1,0 +1,10 @@
+version "4.8.0"
+
+#include "Zscript/Utilities.zsc"
+#include "Zscript/CompanionSpawner.zsc"
+#include "Zscript/CustomEvents.zsc"
+#include "Zscript/MarineCompanions.zsc"
+#include "Zscript/MonsterCompanions.zsc"
+#include "Zscript/CompanionWeapons.zsc"
+#include "Zscript/DeployerGun.zsc"
+#include "Zscript/CustomPlayer.zsc"

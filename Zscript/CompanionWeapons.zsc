@@ -1,0 +1,382 @@
+class CompanionBulletPuff : BulletPuff
+{
+  Default
+  {
+    +MTHRUSPECIES
+    +THRUSPECIES
+    +ALLOWTHRUFLAGS
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+}
+
+class CompanionRocket: Rocket
+{
+  Default
+  {
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionBFGBall: BFGBall
+{
+  Default
+  {
+    +MTHRUSPECIES
+    +THRUSPECIES
+    +ALLOWTHRUFLAGS
+    +DONTHARMSPECIES
+    -HARMFRIENDS
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+  States
+	{
+    Spawn:
+      BFS1 AB 4 Bright;
+      Loop;
+    Death:
+      BFE1 AB 8 Bright;
+      BFE1 C 8 Bright A_BFGSpray;
+      BFE1 DEF 8 Bright;
+      Stop;
+	}
+}
+
+class CompanionBFGExtra : BFGExtra replaces BFGExtra
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ZDOOMTRANS
+    +MTHRUSPECIES
+    +DONTHARMSPECIES
+		RenderStyle "Add";
+		Alpha 0.75;
+		DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Species "Companion";
+	}
+	States
+	{
+	Spawn:
+		BFE2 ABCD 8 Bright;
+		Stop;
+	}
+}
+
+class CompanionPlasmaBall: PlasmaBall
+{
+  Default
+  {
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionArachnotronPlasma : ArachnotronPlasma{
+  Default
+  {
+    +ALLOWTHRUFLAGS
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionBaronBall : BaronBall
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Scale 0.2;
+    Height 5;
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+}
+
+class CompanionCacodemonBall : CacodemonBall
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionDoomImpBall : DoomImpBall
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionFatShot : FatShot
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionRevenantTracer : RevenantTracer
+{
+  Default
+  {
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class HeatSeekingMissile : Actor
+{
+  Default
+  {
+    +SEEKERMISSILE
+    +RANDOMIZE
+    +DEHEXPLOSION
+    +ROCKETTRAIL
+    +SCREENSEEKER
+    +MTHRUSPECIES
+    Radius 11;
+    Height 8;
+    Speed 25;
+    Damage 50;
+    Projectile;
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+    SeeSound "Ally/Seeker";
+    DeathSound "Seeker/Explode";
+    Decal "Scorch";
+  }
+  States
+  {
+    Spawn:
+      HRKT A 1 bright A_SeekerMissile(9,6,SMF_LOOK|SMF_CURSPEED,50,10);
+      HRKT A 0 A_SpawnItemEx ("MissileTrail", 3, 0, 0, 1);
+      loop;
+    Death:
+      FX08 A 6 bright A_Explode(96,128);
+      FX08 BCDEFGH 4 bright;
+      Stop;
+  }
+}
+
+class MissileTrail : Actor
+{
+  Default
+  {
+    +NoClip
+    Projectile;
+    RenderStyle "Add";
+    Alpha 0.4;
+    Scale 0.2;
+  }
+  States
+  {
+    Spawn:
+      FX04 ABCDE 1 Bright;
+      Stop;
+  }
+}
+
+class CompanionGrenade : Actor
+{
+  Default
+  {
+    -NOGRAVITY
+    +LOWGRAVITY
+    +ROCKETTRAIL
+    +MTHRUSPECIES
+    +THRUSPECIES
+    +ALLOWTHRUFLAGS
+    Radius 11;
+    Height 8;
+    Speed 25;
+    Damage 30;
+    Scale 0.2;
+    BounceType "Hexen";
+    SeeSound "Ally/GrenadeBounce";
+    DeathSound "Ally/GrenadeBang";
+    Projectile;
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+  States
+  {
+    Spawn:
+      MGRN A 0;
+      MGRN A 4;
+      MGRN A 24;
+      goto Death;
+    Death:
+      MISL B 8 bright A_Explode(128,96,XF_EXPLICITDAMAGETYPE,false,0,0,10,"CompanionBulletPuff","Companion");
+      MISL C 6 bright;
+      MISL D 4 bright;
+      Stop;
+  }
+}
+
+class CompanionBFG10kShot : Actor
+{
+  Default
+  {
+    +NOBLOCKMAP
+    +NOGRAVITY
+    +ACTIVATEIMPACT
+    +ACTIVATEPCROSS
+    +NOTELEPORT
+    +PUFFONACTORS
+    +PUFFGETSOWNER
+    +FORCERADIUSDMG
+    +MTHRUSPECIES
+    +THRUSPECIES
+    +ALLOWTHRUFLAGS
+    Scale 0.2;
+    Radius 14;
+    Height 8;
+    Speed 25;
+    Damage 320;
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    RenderStyle "Add";
+    Alpha 0.75;
+    SeeSound "marine/bfg10kx";
+    AttackSound "marine/bfg10kx";
+    DeathSound "BFG10kMarine/ShotEnd";
+  }
+  States
+  {
+    Spawn:
+      BFE1 A 0 Bright;
+      BFE1 A 3 Bright A_Detonate;
+      BFE1 BCDEF 3 Bright;
+      Stop;
+  }
+}
+
+class CompanionFire : Actor
+{
+  Default
+  {
+    +THRUGHOST
+    +FORCERADIUSDMG
+    +MTHRUSPECIES
+    Radius 2;
+    Height 4;
+    Speed 19;
+    Damage 5;
+    Scale 0.2;
+    Projectile;
+    DontHurtShooter;
+    RenderStyle "ADD";
+    Alpha 0.67;
+    Scale 0.2;
+    SeeSound "Marine/Flamer";
+    DeathSound "Marine/Scorch";
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+  States
+  {
+    Spawn:
+      TNT1 A 2 Bright;
+      FRFX ABCD 2 Bright A_Explode(3,8);
+      FRFX D 0 Bright A_Lowgravity;
+      FRFX EFG 2 Bright A_Explode(3,16);
+      FRFX HIJ 2 Bright A_Explode(3,32);
+      FRFX KLM 2 Bright A_Explode(3,64);
+      FRFX NO 2 Bright;
+      Stop;
+    Death:
+      FRFX HIJ 2 Bright A_Explode(3,32);
+      FRFX J 0 A_SpawnProjectile("CompanionDropFire");
+      FRFX KLM 2 Bright A_Explode(3,64);
+      FRFX NO 2 Bright;
+      Stop;
+  }
+}
+
+class CompanionDropFire : Actor
+{
+  Default
+  {
+    -NOGRAVITY
+    +LOWGRAVITY
+    +NOEXPLODEFLOOR
+    +NODAMAGETHRUST
+    +THRUGHOST
+    +MTHRUSPECIES
+    Radius 8;
+    Height 40;
+    Projectile;
+    DontHurtShooter;
+    RenderStyle "ADD";
+    Alpha 0.90;
+    Scale 0.2;
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+  States
+  {
+    Spawn:
+      FLME A 1 Bright A_StartSound("Marine/onfire");
+      FLME A 1 Bright A_Explode(1,16);
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(1,16);
+      FLME A 1 Bright A_StartSound("Marine/onfire");
+      FLME A 1 Bright A_Explode(1,32);
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(1,16);
+      FLME A 1 Bright A_StartSound("Marine/onfire");
+      FLME A 1 Bright A_Explode(1,32);
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(1,16);
+      FLME A 1 Bright A_StartSound("Marine/onfire");
+      FLME A 1 Bright A_Explode(1,32);
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(1,16);
+      FLME A 1 Bright A_StartSound("Marine/onfire");
+      FLME A 1 Bright A_Explode(1,32);
+      FLME BCDEFGHIJKLMN 2 Bright A_Explode(1,16);
+      FLME A 0 A_Jump(192,1);
+      loop;
+      TNT1 A 0;
+      goto death;
+    Death:
+      TNT1 A 1 Bright;
+      Stop;
+  }
+}

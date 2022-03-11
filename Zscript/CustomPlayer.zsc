@@ -1,0 +1,23 @@
+class MyDoomGuy : DoomPlayer {
+  Default
+  {
+    Player.startitem "BioPipeBombLauncher";
+    +THRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+}
+
+class MyFist : Fist replaces Fist{
+  States
+  {
+    Fire:
+      PUNG B 4;
+      PUNG C 4 A_CustomPunch(Random(1,10)*2,true,0,"CompanionBulletPuff");
+      PUNG D 5;
+      PUNG C 4;
+      PUNG B 5 A_ReFire;
+      Goto Ready;
+  }
+}
