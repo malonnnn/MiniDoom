@@ -171,6 +171,7 @@ class BioPuff : Actor
 		+NoGravity
 		+Randomize
 		+PuffOnActors
+		+MThruSpecies
 		RenderStyle "Translucent";
 		Radius 0;
 		Height 0;

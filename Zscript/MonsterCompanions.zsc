@@ -1,4 +1,5 @@
-class CompanionArachnotron : Arachnotron{
+class CompanionArachnotron : Arachnotron
+{
   Default
   {
     -CountKill
@@ -31,7 +32,8 @@ class CompanionArachnotron : Arachnotron{
 	}
 }
 
-class CompanionArchvile : Archvile{
+class CompanionArchvile : Archvile
+{
   Default
   {
     -CountKill
@@ -85,7 +87,8 @@ class CompanionArchvile : Archvile{
 	}
 }
 
-class CompanionBaronOfHell : BaronOfHell{
+class CompanionBaronOfHell : BaronOfHell
+{
   Default
   {
     -CountKill
@@ -126,7 +129,8 @@ class CompanionBaronOfHell : BaronOfHell{
 	}
 }
 
-class CompanionCacodemon : Cacodemon{
+class CompanionCacodemon : Cacodemon
+{
   Default
   {
     -CountKill
@@ -167,7 +171,8 @@ class CompanionCacodemon : Cacodemon{
 	}
 }
 
-class CompanionChaingunGuy : ChaingunGuy{
+class CompanionChaingunGuy : ChaingunGuy
+{
   Default
   {
     -CountKill
@@ -204,7 +209,8 @@ class CompanionChaingunGuy : ChaingunGuy{
 	}
 }
 
-class CompanionCyberdemon : Cyberdemon{
+class CompanionCyberdemon : Cyberdemon
+{
   Default
   {
     -CountKill
@@ -239,7 +245,8 @@ class CompanionCyberdemon : Cyberdemon{
 	}
 }
 
-class CompanionDemon : Demon{
+class CompanionDemon : Demon
+{
   Default
   {
     -CountKill
@@ -271,7 +278,8 @@ class CompanionDemon : Demon{
   }
 }
 
-class CompanionDoomImp : DoomImp{
+class CompanionDoomImp : DoomImp
+{
   Default
   {
     -CountKill
@@ -311,7 +319,8 @@ class CompanionDoomImp : DoomImp{
 	}
 }
 
-class CompanionFatso : Fatso{
+class CompanionFatso : Fatso
+{
   Default
   {
     -CountKill
@@ -390,7 +399,8 @@ class CompanionFatso : Fatso{
 	}
 }
 
-class CompanionHellKnight : HellKnight{
+class CompanionHellKnight : HellKnight
+{
   Default
   {
     -CountKill
@@ -483,7 +493,8 @@ class CompanionLostSoul : LostSoul{
   }
 }
 
-class CompanionPainElemental : PainElemental{
+class CompanionPainElemental : PainElemental
+{
   Default
   {
     -CountKill
@@ -646,7 +657,8 @@ class CompanionPainElemental : PainElemental{
 	}
 }
 
-class CompanionRevenant : Revenant{
+class CompanionRevenant : Revenant
+{
   Default
   {
     -CountKill
@@ -708,7 +720,8 @@ class CompanionRevenant : Revenant{
 
 }
 
-class CompanionShotgunGuy : ShotgunGuy{
+class CompanionShotgunGuy : ShotgunGuy
+{
   Default
   {
     -CountKill
@@ -756,7 +769,8 @@ class CompanionShotgunGuy : ShotgunGuy{
   }
 }
 
-class CompanionSpectre : Spectre{
+class CompanionSpectre : Spectre
+{
   Default
   {
     -CountKill
@@ -788,7 +802,8 @@ class CompanionSpectre : Spectre{
   }
 }
 
-class CompanionSpiderMastermind : SpiderMastermind{
+class CompanionSpiderMastermind : SpiderMastermind
+{
   Default
   {
     -CountKill
@@ -837,7 +852,8 @@ class CompanionSpiderMastermind : SpiderMastermind{
   }
 }
 
-class CompanionWolfensteinSS : WolfensteinSS{
+class CompanionWolfensteinSS : WolfensteinSS
+{
   Default
   {
     -CountKill
@@ -877,7 +893,8 @@ class CompanionWolfensteinSS : WolfensteinSS{
 	}
 }
 
-class CompanionZombieMan : ZombieMan{
+class CompanionZombieMan : ZombieMan
+{
   Default
   {
     -CountKill

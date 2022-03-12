@@ -1,0 +1,159 @@
+class CompanionBulletPuff : BulletPuff
+{
+  Default
+  {
+    +MTHRUSPECIES
+    +THRUSPECIES
+    +ALLOWTHRUFLAGS
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+}
+
+class CompanionRocket: Rocket
+{
+  Default
+  {
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionBFGBall: BFGBall
+{
+  Default
+  {
+    +MTHRUSPECIES
+    +THRUSPECIES
+    +ALLOWTHRUFLAGS
+    +DONTHARMSPECIES
+    -HARMFRIENDS
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+  States
+	{
+    Spawn:
+      BFS1 AB 4 Bright;
+      Loop;
+    Death:
+      BFE1 AB 8 Bright;
+      BFE1 C 8 Bright A_BFGSpray;
+      BFE1 DEF 8 Bright;
+      Stop;
+	}
+}
+
+class CompanionBFGExtra : BFGExtra replaces BFGExtra
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ZDOOMTRANS
+    +MTHRUSPECIES
+    +DONTHARMSPECIES
+		RenderStyle "Add";
+		Alpha 0.75;
+		DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Species "Companion";
+	}
+	States
+	{
+	Spawn:
+		BFE2 ABCD 8 Bright;
+		Stop;
+	}
+}
+
+class CompanionPlasmaBall: PlasmaBall
+{
+  Default
+  {
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionArachnotronPlasma : ArachnotronPlasma{
+  Default
+  {
+    +ALLOWTHRUFLAGS
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionBaronBall : BaronBall
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Scale 0.2;
+    Height 5;
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+  }
+}
+
+class CompanionCacodemonBall : CacodemonBall
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionDoomImpBall : DoomImpBall
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionFatShot : FatShot
+{
+	Default
+	{
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
+
+class CompanionRevenantTracer : RevenantTracer
+{
+  Default
+  {
+    +MTHRUSPECIES
+    Species "Companion";
+    DamageType "Companion";
+    DamageFactor "Companion", 0.0;
+    Scale 0.2;
+  }
+}
